@@ -7,5 +7,9 @@
         `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
     - To run ML pipeline that trains classifier and savepython models/train_classifier.py data/DisasterResponse.db models/classifier.pkls
     - To run the webapp go to the app folder and use the following command: `python run.py`
+2. Run the following command to generate the view web app link
+
+<code> env | grep WORK </code>
+
 
 3. Go to http://0.0.0.0:3001/
