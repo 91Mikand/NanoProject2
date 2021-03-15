@@ -64,10 +64,14 @@ def clean_data(df):
 def save_data(df, database_filename):
     """
     Saving the clean data into a sqlite database
+    IN:
+    The dataframe that we created earlier
+    OUT:
+    SQLite DataBase containing the data from the dataframe.
     """
    #commented for a backup
-    #engine = create_engine('sqlite:///DisasterPipelinesProject.db')
-    #df.to_sql('DisasterPipelinesProject', engine, index=False, if_exists='replace')
+    #engine = create_engine('sqlite:///DisasterResponse.db')
+    #df.to_sql('DisasterResponse', engine, index=False, if_exists='replace')
     engine = create_engine(f'sqlite:///{database_filename}')
     df.to_sql('DisasterResponse', engine, index=False, if_exists='replace')
 
