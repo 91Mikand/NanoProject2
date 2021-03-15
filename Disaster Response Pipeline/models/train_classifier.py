@@ -36,6 +36,10 @@ def load_data(database_filepath):
 def tokenize(text):
     """
     Tokenize the text
+    IN:
+    The pre-processed message
+    OUT:
+    Lemmatized, cleaned and normalized tokens
     """
     stop_words = stopwords.words("english")
     lemmatizer = WordNetLemmatizer()
@@ -55,6 +59,10 @@ def build_model():
     """
     Building a pipeline and using GridSearch to find the best parameteres
     I chose the second model I have previously developed, as it performed slightly better
+    IN: 
+    The data goes through the designed Pipeline and Grid Search
+    OUT:
+    After going through Grid Search, the best parameters are chosen and the model is trained
     """
     pipeline2 = Pipeline([
     ('vect', CountVectorizer(tokenizer = tokenize)),
@@ -73,6 +81,10 @@ def build_model():
 def evaluate_model(model, X_test, Y_test, category_names):
     """
     Testing the model 
+    IN:
+    The trained model
+    OUT:
+    Model classification and scores
     """
     Y_pred = model.predict(X_test)
     category_names = Y_test.columns.tolist()
@@ -94,6 +106,10 @@ def evaluate_model(model, X_test, Y_test, category_names):
 def save_model(model, model_filepath):
     """
     Saving the final model 
+    IN: 
+    The model that has just been built 
+    OUT:
+    Model file in .sav format
     """
     pickle.dump(model, open('model.sav', 'wb'))
 
